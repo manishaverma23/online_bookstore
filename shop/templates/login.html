@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid bg-secondary py-4 text-light">
+    <h3 class="text-center text-light "><i class="fa-solid fa-user"></i> Login</h3>
+    <p class="text-center"> BookForts</p>
+</div>
+<div class="container mt-5 mb-5" height="400px" width="500px">
+    <div class="row">
+        <div class="col-md-4 mt-5 mb-4 offset-md-4">
+            <img src="https://thumbs.dreamstime.com/b/glowing-neon-line-user-protection-icon-isolated-black-background-secure-login-password-protected-personal-data-authentication-201258623.jpg" alt="image" height="90px" class=" mt- mb-3 mx-auto d-block">
+               <form method="post"> 
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="Username">Username </label>
+                    <input type="text" class="form-control" placeholder="Enter user name" name="username"/>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter password" name="password" />
+                  </div>
+          
+                 
+          
+          
+          
+                <input type="submit" value="Login"  name="login"   class="btn btn-success w-100 mb-3" onclick="Login()">
+               </form>
+               <p class="text-center mb-5 lead">Don't have an account? <a href="{% url 'register'%}">Register</a> </p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+{% include 'footer.html' %}
+
+{% endblock %}
+{% block js %}
+<script>
+    function Login(){
+        alert("Logged in Successfully");
+    }
+</script>
+{% endblock %}

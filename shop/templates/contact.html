@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid bg-secondary py-4 text-light">
+  <h3 class="text-center text-light "><i class="fa-solid fa-user"></i> Contact Us</h3>
+  <p class="text-center"> BookForts</p>
+</div>
+<div class="container-fluid py-2 mt-3">
+
+  
+           <div class="row">
+            <div class="col-md-6">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyexphAiYo-5NLAw4IWFjkyIgROm5BjROvhKDMo2iy2A&s" alt="" height="360px" class="mt-2 mb-2">
+            </div>
+            <div class="col-md-6">
+              <form method="post">{% csrf_token %}
+                <div class="form-group mt-2">
+                  <label>Name</label>
+                  <input type="text" class="form-control mt-2" id="name" name="name" placeholder="Enter Your Name">
+                </div>
+                        <div class="form-group mt-2">
+                  <label>Email</label>
+                  <input type="email" class="form-control mt-2" id="email" name="email" placeholder="Enter Your Email">
+                </div>
+                        <div class="form-group mt-2">
+                  <label>Phone</label>
+                  <input type="number" class="form-control mt-2" id="phone" name="phone" placeholder="Enter Your Phone Number">
+                </div>
+                        <div class="form-group">
+                 <div class="form-group mt-2">
+                  <label>How May We Help You ?</label>
+                  <textarea class="form-control mt-2" id="desc" name="desc" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success mt-4 mb-5">Submit</button>
+                <br>
+                <br>
+                <br>
+
+               </form>
+            </div>
+           </div>
+  
+
+ {% include 'footer.html' %}
+{% endblock %}
+{% block js %}
+
+{% if alert %}
+
+<script>
+  alert("We will contact you soon!!!");
+  document.location = "/"
+</script>
+{% endif %}
+
+{% endblock %}
+
